@@ -1,5 +1,6 @@
 package com.codecool.leaguestatistics.model;
 
+import com.codecool.leaguestatistics.Utils;
 import com.codecool.leaguestatistics.factory.NamesGenerator;
 
 /**
@@ -52,5 +53,14 @@ public class Player {
 
     public void setGoals(int goals) {
         this.goals = goals;
+    }
+
+
+    public boolean hasScored(){
+        if (skillRate >= Utils.getRandomValue(0,101)){
+            goals++;
+            return true;
+        }
+        return false ;
     }
 }

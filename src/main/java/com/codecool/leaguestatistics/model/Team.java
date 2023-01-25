@@ -8,7 +8,7 @@ import java.util.List;
  * Represents a team.
  */
 public class Team {
-
+    private int ZERO = 0;
     private String name;
     private Division division;
     private int wins;
@@ -36,7 +36,7 @@ public class Team {
      * CurrentPoints is a sum of wins and draws points. For each win 3 points, for draw 1 point.
      */
     public int getCurrentPoints() {
-        throw new RuntimeException("getCurrentPoints method not implemented");
+        return (wins * 3 + draws);
     }
 
     public String getName() {
@@ -86,4 +86,14 @@ public class Team {
     public void setPlayers(List<Player> players) {
         this.players = players;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    public void resetPlayerGoals() {
+        players.stream().forEach(player -> player.setGoals(ZERO));   // TODO: ask if there is other way | How to call a function ?
+    }
+
 }

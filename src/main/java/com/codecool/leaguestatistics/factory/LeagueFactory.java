@@ -1,10 +1,12 @@
 package com.codecool.leaguestatistics.factory;
 
 import com.codecool.leaguestatistics.Utils;
+import com.codecool.leaguestatistics.model.Division;
 import com.codecool.leaguestatistics.model.Player;
 import com.codecool.leaguestatistics.model.Team;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,14 +21,24 @@ public class LeagueFactory {
      * @return Full set of teams with players
      */
     public static List<Team> createLeague(int teamsInDivision) {
-        throw new RuntimeException("createLeague method not implemented");
+        List<Team> teams = new ArrayList<>();
+        for (int i = 0; i < teamsInDivision; i++) {
+            Team team = new Team(Division.East,getPlayers(Utils.TEAM_SIZE));
+            teams.add(team);
+        }
+        return teams;
     }
 
     /**
      * Returns a collection with a given amount of newly created players
      */
     private static List<Player> getPlayers(int amount) {
-        throw new RuntimeException("getPlayers method not implemented");
+        List<Player> players = new ArrayList<>();
+        for (int j = 0; j < amount; j++) {
+            Player player = new Player(getPlayerSkillRate());
+            players.add(player);
+        }
+        return  players;
     }
 
     private static int getPlayerSkillRate() {

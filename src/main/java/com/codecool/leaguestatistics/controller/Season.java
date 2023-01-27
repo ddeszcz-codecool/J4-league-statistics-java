@@ -18,17 +18,12 @@ public class Season {
         league = new ArrayList<>();
     }
 
-    private Display display;
 
-    /**
-     * Fills league with new teams and simulates all games in season.
-     * After all games played calls table to be displayed.
-     */
     public void run() {
         this.league = LeagueFactory.createLeague(6);
         playAllGames();
         sortLeagueByPoints();
-        display.printTable(league);
+        Display.printTable(league);
         // Call Display methods below
 
     }
@@ -71,7 +66,7 @@ public class Season {
                 team2.setLoses(team2.getLoses() + 1);
                 break;
         }
-        display.printMatchResult(team1, team2, scoreTeam1, scoreTeam2);
+        Display.printMatchResult(team1, team2, scoreTeam1, scoreTeam2);
     }
 
     /**
